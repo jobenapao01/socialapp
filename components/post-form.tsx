@@ -45,7 +45,6 @@ export default function PostForm() {
 						name='content'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Create Post</FormLabel>
 								<FormControl>
 									<Input
 										placeholder='Post what is in you mind'
@@ -59,6 +58,7 @@ export default function PostForm() {
 					<Button
 						disabled={status === 'executing'}
 						type='submit'
+						className='w-full'
 					>
 						Submit
 					</Button>

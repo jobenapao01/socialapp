@@ -20,10 +20,10 @@ export default function Posts() {
 		return (
 			<CardMotion
 				layout
-				className='flex flex-col mt-6 p-4 font-medium'
+				className='flex flex-col mt-6 p-4 font-medium shadow-md'
 			>
 				<CardHeaderMotion layout>
-					<CardTitle>Posts</CardTitle>
+					<CardTitle>News Feed</CardTitle>
 					{/* <CardDescription>
 						Currently:
 						<span className={cn(fetchStatus === 'idle' ? 'text-orange-400' : '', fetchStatus === 'fetching' ? 'text-green-400' : '')}>{fetchStatus}</span>
