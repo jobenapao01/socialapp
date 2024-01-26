@@ -23,7 +23,7 @@ export default function Posts() {
 				className='flex flex-col mt-6 p-4 font-medium shadow-md'
 			>
 				<CardHeaderMotion layout>
-					<CardTitle>News Feed</CardTitle>
+					<CardTitle className='text-sky-600'>News Feed</CardTitle>
 					{/* <CardDescription>
 						Currently:
 						<span className={cn(fetchStatus === 'idle' ? 'text-orange-400' : '', fetchStatus === 'fetching' ? 'text-green-400' : '')}>{fetchStatus}</span>
@@ -47,7 +47,7 @@ export default function Posts() {
 									height={24}
 									alt={post.author.name!}
 								/>
-								<h2 className='text-sm font-bold'>{post.author.name}</h2>
+								<h2 className='text-sm font-bold text-sky-600'>{post.author.name}</h2>
 							</div>
 							<p className='text-primary'>{post.content}</p>
 							<div className='flex gap-2 items-center'>

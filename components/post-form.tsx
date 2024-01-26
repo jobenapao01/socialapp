@@ -58,9 +58,9 @@ export default function PostForm() {
 					<Button
 						disabled={status === 'executing'}
 						type='submit'
-						className='w-full'
+						className='w-full bg-sky-600'
 					>
-						Submit
+						Post
 					</Button>
 				</form>
 			</Form>

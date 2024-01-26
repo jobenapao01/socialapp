@@ -41,7 +41,7 @@ export const UserButton = ({ user }: Session) => {
 					<span className='text-xs text-secondary-foreground'>{user?.email}</span>
 				</div>
 				<DropdownMenuItem
-					className='py-4 px-2 flex items-center font-medium focus:bg-destructive'
+					className='py-4 px-2 flex items-center font-medium focus:bg-sky-600 focus:text-white cursor-pointer'
 					onClick={() => signOut()}
 				>
 					<LogOut className='mr-4 px-1' /> Sign out
