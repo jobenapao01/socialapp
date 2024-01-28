@@ -1,5 +1,4 @@
 import { pgTable, serial, text, integer } from 'drizzle-orm/pg-core';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { relations } from 'drizzle-orm';
 import { timestamp, primaryKey } from 'drizzle-orm/pg-core';
 import type { AdapterAccount } from '@auth/core/adapters';
