@@ -4,17 +4,10 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Session } from 'next-auth/types';
 import { signOut } from 'next-auth/react';
-import { LogOut, Settings, TruckIcon } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import Image from 'next/image';
-import { Moon, Sun } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 export const UserButton = ({ user }: Session) => {
-	const [isChecked, setChecked] = useState(false);
-
-	const router = useRouter();
-
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger>

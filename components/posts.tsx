@@ -4,14 +4,14 @@ import { useGetPosts } from '@/data/get-posts';
 import { addLike, deletePost } from '@/server/actions/create-post';
 import { useAction } from 'next-safe-action/hooks';
 import { AnimatePresence, motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+
 import { HeartIcon, Trash } from 'lucide-react';
-import { CardDescription, CardHeader, CardHeaderMotion, CardMotion, CardTitle } from './ui/card';
+import { CardHeaderMotion, CardMotion, CardTitle } from './ui/card';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 
 export default function Posts() {
-	const { data: posts, error: postError, fetchStatus } = useGetPosts();
+	const { data: posts, error: postError } = useGetPosts();
 	const { execute: executeAddLike } = useAction(addLike);
 	const { execute: executeDeletePost } = useAction(deletePost);
 	const { data: session } = useSession();
@@ -24,10 +24,6 @@ export default function Posts() {
 			>
 				<CardHeaderMotion layout>
 					<CardTitle className='text-sky-600'>News Feed</CardTitle>
-					{/* <CardDescription>
-						Currently:
-						<span className={cn(fetchStatus === 'idle' ? 'text-orange-400' : '', fetchStatus === 'fetching' ? 'text-green-400' : '')}>{fetchStatus}</span>
-					</CardDescription> */}
 				</CardHeaderMotion>
 
 				<AnimatePresence presenceAffectsLayout>
