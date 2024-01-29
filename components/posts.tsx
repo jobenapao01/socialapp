@@ -5,7 +5,7 @@ import { addLike, deletePost } from '@/server/actions/create-post';
 import { useAction } from 'next-safe-action/hooks';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { HeartIcon, Trash } from 'lucide-react';
+import { HeartIcon, Trash, MessageCircle, Send } from 'lucide-react';
 import { CardHeaderMotion, CardMotion, CardTitle } from './ui/card';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
@@ -20,10 +20,10 @@ export default function Posts() {
 		return (
 			<CardMotion
 				layout
-				className='flex flex-col mt-6 p-4 font-medium shadow-md'
+				className='flex flex-col mt-6 p-4 font-medium shadow-md mx-auto'
 			>
 				<CardHeaderMotion layout>
-					<CardTitle className='text-sky-600'>News Feed</CardTitle>
+					<CardTitle className='text-sky-600 mx-auto'>News Feed</CardTitle>
 				</CardHeaderMotion>
 
 				<AnimatePresence presenceAffectsLayout>
@@ -33,7 +33,7 @@ export default function Posts() {
 							animate={{ opacity: 1 }}
 							initial={{ opacity: 0 }}
 							exit={{ opacity: 0 }}
-							className='mx-6 my-2 p-4 border-2 border-secondary rounded-md flex flex-col gap-4'
+							className='mx-auto my-2 p-4 shadow-lg w-1/2 flex-shrink h-fit border-2 border-secondary rounded-md flex flex-col gap-4'
 							key={post.id}
 						>
 							<div className='flex gap-2 items-center '>
@@ -44,6 +44,8 @@ export default function Posts() {
 									alt={post.author.name!}
 								/>
 								<h2 className='text-sm font-bold text-sky-600'>{post.author.name}</h2>
+
+								<div className='items-center justify-center flex cursor-pointer'>...</div>
 							</div>
 							<p className='text-primary'>{post.content}</p>
 							<div className='flex gap-2 items-center'>
@@ -63,6 +65,8 @@ export default function Posts() {
 									<HeartIcon className='w-4 text-secondary-foreground' />
 									<p className='text-sm'>{post.likes.length}</p>
 								</div>
+								<MessageCircle className='w-4 text-secondary-foreground cursor-pointer -rotate-90' />
+								<Send className='w-4 text-secondary-foreground cursor-pointer' />
 							</div>
 						</motion.div>
 					))}
