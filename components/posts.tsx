@@ -48,25 +48,27 @@ export default function Posts() {
 								<div className='items-center justify-center flex cursor-pointer'>...</div>
 							</div>
 							<p className='text-primary'>{post.content}</p>
-							<div className='flex gap-2 items-center'>
+							<div className='flex gap-2 items-center justify-between'>
+								<div className='flex gap-x-4 items-center'>
+									<div
+										onClick={() =>
+											executeAddLike({
+												post_id: post.id,
+												user_id: session?.user.id as string,
+											})
+										}
+										className='flex items-center gap-1 cursor-pointer'
+									>
+										<HeartIcon className='w-4 text-secondary-foreground' />
+										<p className='text-sm'>{post.likes.length}</p>
+									</div>
+									<MessageCircle className='w-4 text-secondary-foreground cursor-pointer -rotate-90' />
+									<Send className='w-4 text-secondary-foreground cursor-pointer' />
+								</div>
 								<Trash
 									onClick={() => executeDeletePost({ id: post.id })}
 									className='w-4 text-red-400 cursor-pointer '
 								/>
-								<div
-									onClick={() =>
-										executeAddLike({
-											post_id: post.id,
-											user_id: session?.user.id as string,
-										})
-									}
-									className='flex items-center gap-1 cursor-pointer'
-								>
-									<HeartIcon className='w-4 text-secondary-foreground' />
-									<p className='text-sm'>{post.likes.length}</p>
-								</div>
-								<MessageCircle className='w-4 text-secondary-foreground cursor-pointer -rotate-90' />
-								<Send className='w-4 text-secondary-foreground cursor-pointer' />
 							</div>
 						</motion.div>
 					))}
